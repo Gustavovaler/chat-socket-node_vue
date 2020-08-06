@@ -10,15 +10,18 @@ new Vue({
         messages: []
     }, 
     methods: {
-        send() {
+        send() { 
+            
             socket.emit('chat-message', {
                 nick: this.nick,
                 message: this.message,
-                date: new Date().getTime()
+                date: new Date().getTime(),
+               
             });
+            console.log(this.message);
             this.message = null;
         },
-        singIn() {
+        signIn() {
             if (!this.nick){
                 return;
             }
